@@ -1,0 +1,31 @@
+{
+    "name": "aldidigitalservices/composer-package-development-toolset",
+    "description": "Develop Composer packages from inside your projects",
+    "keywords": ["dev"],
+    "type": "composer-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Lerch",
+            "email": "christian.lerch@aldi-sued.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "composer-plugin-api": "^2.3"
+    },
+    "require-dev": {
+        "composer/composer": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ALDIDigitalServices\\ComposerPackageDevelopmentToolset\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "ALDIDigitalServices\\ComposerPackageDevelopmentToolset\\Plugin"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
