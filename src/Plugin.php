@@ -118,7 +118,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     {
         array_unshift($composerJson->repositories, (object)[
             'type' => 'path',
-            'url' => $packagePath,
+            'url' => preg_replace("|^$this->workingDirectory/|", '', $packagePath),
             'options' => [
                 'symlink' => true,
             ],
