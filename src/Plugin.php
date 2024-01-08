@@ -153,6 +153,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
             "--working-dir=$this->workingDirectory",
             'update',
             '--no-audit',
+            '--ignore-platform-reqs',
             $packageNameList,
         ]);
 
