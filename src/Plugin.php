@@ -116,6 +116,10 @@ class Plugin implements PluginInterface, EventSubscriberInterface
 
     private function addPackageRepository(object $composerJson, string $packagePath): void
     {
+        if (!property_exists($composerJson, 'repositories')) {
+            $composerJson->repositories = [];
+        }
+
         array_unshift($composerJson->repositories, (object)[
             'type' => 'path',
             'url' => preg_replace("|^$this->workingDirectory/|", '', $packagePath),
@@ -127,6 +131,10 @@ class Plugin implements PluginInterface, EventSubscriberInterface
 
     private function setPackageVersion(object $composerJson, string $packageName): void
     {
+        if (!property_exists($composerJson, 'require')) {
+            $composerJson->require = (object)[];
+        }
+
         $composerJson->require->$packageName = '@dev';
     }
 
