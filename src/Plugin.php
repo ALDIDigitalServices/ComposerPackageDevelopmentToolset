@@ -94,7 +94,10 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         if ($this->packagePathsByNameCache === null) {
             $extra = $this->composer->getPackage()->getExtra();
             $packageDir = rtrim($extra['composer-package-development-toolset']['package-dir'] ?? 'dev-packages', '/');
-            $composerJsonPaths = glob("$this->workingDirectory/$packageDir/*/composer.json");
+            $absolutePackageDir = str_starts_with($packageDir, '/')
+                ? $packageDir
+                : "$this->workingDirectory/$packageDir";
+            $composerJsonPaths = glob("$absolutePackageDir/*/composer.json");
 
             if ($composerJsonPaths === false) {
                 throw new Exception('Could not search for packages');
