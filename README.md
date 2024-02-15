@@ -1,6 +1,6 @@
 # Composer Package Development Toolset
-A Composer plugin that enables you to develop your Composer packages right inside your project without altering its composer.json/composer.lock.
-This works by symlinking the development packages into the vendor directory, replacing existing installations.
+A Composer plugin that enables you to develop your Composer packages alongside your project, without altering the composer.json or composer.lock file of the project.
+This works by symlinking the development packages into the vendor directory, replacing possible existing installations.
 
 ## Installation
 Add the package to your dev dependencies:
